@@ -1,18 +1,14 @@
-// importamos la libreria
 import mongoose from "mongoose";
 
-// creamos el schema de la base de datos
 const userSchema = new mongoose.Schema({
-  id: String,
   name: String,
-  dateOfBirth: Date,
-  phone: String,
   email: String,
+  password: String,
+  phone: String,
   domicile: String,
-  role: {type: mongoose.Schema.ObjectId, ref: "roles"},
-  registerDate: {type: date, default: Date.now},
-  dbStatus: true,
-
+  role: { type: mongoose.Schema.ObjectId, ref: "roles" },
+  registerDate: { type: Date, default: Date.now },
+  dbStatus: Boolean,
 });
 
 const user = mongoose.model("users", userSchema);
