@@ -12,5 +12,6 @@ router.post(
   user.registerUser
 );
 router.get("./listUser/:name?", user.listUser);
+router.post("/login", user.login);
 
 export default router;
