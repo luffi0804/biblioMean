@@ -19,7 +19,7 @@ const registerRole = async (req, res) => {
   // res.status(200).send({ result });
 };
 
-const listRole = async (req, res) => {
+const listRoleAdmin = async (req, res) => {
   let roles = await role.find();
 
   return roles.length === 0
@@ -27,4 +27,28 @@ const listRole = async (req, res) => {
     : res.status(200).send({ roles });
 };
 
-export default { registerRole, listRole };
+const deleteRoleAdmin = async (req, res) => {
+  if (!req.params["_id"])
+    return res.status(400).send({ message: "Incomplete data" });
+
+  const roles = await role.findByIdAndUpdate(req.params["_id"]);
+
+  return !roles
+    ? res.status(400).send({ message: "Error deleting role" })
+    : res.status(200).send({ message: "Role deleted" });
+};
+const updateRoleAdmin = async (req, res) => {
+  if (!req.body._id || !req.body.name || !req.body.role)
+    return res.status(400).send({ message: "Incomplete data" });
+
+  const editRole = await role.findByIdAndUpdate(req.body._id, {
+    name: req.body.name,
+    description: req.body.description,
+  });
+
+  return !editRole
+    ? res.status(500).send({ message: "Error changin role" })
+    : res.status(200).send({ message: "Role changed" });
+};
+
+export default { registerRole, listRoleAdmin, deleteRoleAdmin, updateRoleAdmin };

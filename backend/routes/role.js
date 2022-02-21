@@ -3,6 +3,8 @@ import express from "express";
 const router = express.Router();
 
 router.post("/registerRole", role.registerRole);
-router.get("/listRole", role.listRole);
+router.get("/listRoleAdmin", role.listRoleAdmin);
+router.put("/delete/:_id", role.deleteRoleAdmin)
+router.put("/updateRoleAdmin", role.updateRoleAdmin)
 
 export default router;
