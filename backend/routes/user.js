@@ -11,7 +11,10 @@ router.post(
   roleM.existingRole,
   user.registerUser
 );
-router.get("./listUser/:name?", user.listUser);
+router.get("/listUserAdmin/:name?", user.listUser);
+router.get("/listUser/:name?", user.listUser);
 router.post("/login", user.login);
+router.put("/delete/:_id", user.deleteUser)
+router.put("/updateUserAdmin", user.updateUserAdmin)
 
 export default router;
