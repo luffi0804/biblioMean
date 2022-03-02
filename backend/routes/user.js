@@ -1,16 +1,12 @@
 import express from "express";
 import user from "../controllers/user.js";
-import roleM from "../middleware/role.js";
-import userM from "../middleware/user.js";
+import roleMidd from "../middleware/role.js";
+import userMidd from "../middleware/user.js";
 
 const router = express.Router();
 
-router.post(
-  "/registerUser",
-  userM.existingUser,
-  roleM.existingRole,
-  user.registerUser
-);
+router.post("/register",userMidd.existingUser, roleMidd.getRoleUser, user.registerUser);
+
 router.get("/listUserAdmin/:name?", user.listUser);
 router.get("/listUser/:name?", user.listUser);
 router.post("/login", user.login);
