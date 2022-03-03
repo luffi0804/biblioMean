@@ -22,6 +22,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ListTaskComponent } from './board/list-task/list-task.component';
+import { ListBookComponent } from './board/list-book/list-book.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     RegisterComponent,
     LoginComponent,
     RegisterUserComponent,
+    ListTaskComponent,
+    ListBookComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule,MatToolbarModule, MatButtonModule, MatFormFieldModule, MatCardModule, MatInputModule, MatSnackBarModule],
 
